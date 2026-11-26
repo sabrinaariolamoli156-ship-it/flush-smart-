@@ -1,0 +1,1173 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FLUSH SMART! | Every Flush Matters</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --deep: #061e35;
+    --navy: #092e50;
+    --blue: #087fbd;
+    --aqua: #54d8df;
+    --ice: #e5f8fb;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f1faff;
+    color: var(--deep);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* NAVIGATION */
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.logo {
+    color: white;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--aqua);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav ul a {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+nav ul a:hover {
+    color: var(--aqua);
+}
+
+/* HERO */
+
+.hero {
+    min-height: 720px;
+    background:
+        linear-gradient(90deg, rgba(3,24,45,.95), rgba(3,35,62,.68), rgba(3,35,62,.15)),
+        url("https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=2000&q=90");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 190px 9% 130px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 130px;
+    background: #f1faff;
+    border-radius: 50% 50% 0 0;
+    bottom: -90px;
+    left: -15%;
+}
+
+.hero-content {
+    max-width: 750px;
+    position: relative;
+    z-index: 2;
+    animation: appear 1.2s ease;
+}
+
+.eyebrow {
+    color: var(--aqua);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 8vw, 105px);
+    line-height: .95;
+    letter-spacing: -5px;
+    margin: 28px 0;
+    text-transform: uppercase;
+}
+
+.hero h1 span {
+    color: var(--aqua);
+    display: block;
+}
+
+.hero p {
+    font-size: 16px;
+    line-height: 1.9;
+    color: #d4eaf5;
+    max-width: 520px;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.primary-btn {
+    display: inline-block;
+    padding: 15px 28px;
+    background: var(--aqua);
+    color: var(--deep);
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    transition: .3s;
+}
+
+.primary-btn:hover {
+    background: white;
+    transform: translateY(-5px);
+}
+
+.text-btn {
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--aqua);
+    padding-bottom: 5px;
+}
+
+/* FLOATING DECORATION */
+
+.bubble {
+    position: absolute;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 50%;
+    animation: float 5s ease-in-out infinite;
+}
+
+.bubble.one {
+    width: 75px;
+    height: 75px;
+    right: 13%;
+    top: 30%;
+}
+
+.bubble.two {
+    width: 30px;
+    height: 30px;
+    right: 28%;
+    top: 23%;
+    animation-delay: 1s;
+}
+
+.bubble.three {
+    width: 48px;
+    height: 48px;
+    right: 9%;
+    bottom: 25%;
+    animation-delay: 2s;
+}
+
+/* MOVING MESSAGE */
+
+.marquee {
+    background: var(--aqua);
+    color: var(--deep);
+    padding: 17px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: slide 23s linear infinite;
+}
+
+/* GENERAL SECTION */
+
+section {
+    padding: 100px 9%;
+}
+
+.small-label {
+    color: var(--blue);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    font-size: clamp(36px, 5vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--navy);
+    margin: 15px 0 22px;
+}
+
+.section-description {
+    color: #617c91;
+    line-height: 1.9;
+    max-width: 650px;
+}
+
+/* INTRO SECTION */
+
+.intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.intro-image {
+    position: relative;
+}
+
+.intro-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px 100px 10px 10px;
+    box-shadow: 20px 20px 0 var(--aqua);
+}
+
+.image-stamp {
+    position: absolute;
+    right: -20px;
+    bottom: 25px;
+    background: var(--navy);
+    color: white;
+    padding: 18px 22px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    transform: rotate(-4deg);
+}
+
+.intro-text p {
+    color: #617c91;
+    margin-bottom: 18px;
+    line-height: 1.9;
+}
+
+/* FACT STRIP */
+
+.fact-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--navy);
+    color: white;
+}
+
+.fact {
+    padding: 38px 30px;
+    border-right: 1px solid rgba(255,255,255,.15);
+}
+
+.fact:last-child {
+    border: none;
+}
+
+.fact strong {
+    display: block;
+    color: var(--aqua);
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.fact p {
+    color: #c2dbea;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* PROBLEM SECTION */
+
+.problem {
+    background: #dff4fa;
+    position: relative;
+}
+
+.problem-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    margin-bottom: 45px;
+    flex-wrap: wrap;
+}
+
+.problem-heading .section-description {
+    max-width: 350px;
+}
+
+.problem-layout {
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    gap: 20px;
+}
+
+.problem-main {
+    background:
+        linear-gradient(0deg, rgba(4,27,49,.9), rgba(4,27,49,.05)),
+        url("https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=85");
+    background-size: cover;
+    background-position: center;
+    min-height: 430px;
+    border-radius: 12px;
+    display: flex;
+    align-items: flex-end;
+    padding: 35px;
+    color: white;
+    transition: .4s;
+}
+
+.problem-main:hover {
+    transform: scale(1.01);
+}
+
+.problem-main h3 {
+    font-size: 32px;
+    max-width: 380px;
+}
+
+.problem-side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.problem-card {
+    background: white;
+    padding: 28px;
+    flex: 1;
+    border-radius: 12px;
+    border-left: 5px solid var(--blue);
+    transition: .3s;
+}
+
+.problem-card:hover {
+    transform: translateX(8px);
+}
+
+.problem-card span {
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.problem-card h3 {
+    color: var(--navy);
+    margin: 10px 0;
+    font-size: 21px;
+}
+
+.problem-card p {
+    color: #617c91;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* DO NOT FLUSH */
+
+.dont-flush {
+    background: var(--deep);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.dont-flush::before {
+    content: "NO";
+    position: absolute;
+    right: -15px;
+    top: 15px;
+    font-size: 230px;
+    color: rgba(255,255,255,.035);
+    font-weight: 900;
+}
+
+.dont-flush .section-title {
+    color: white;
+}
+
+.dont-flush .section-description {
+    color: #bfd5e5;
+}
+
+.dont-heading {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 45px;
+}
+
+.waste-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.waste {
+    border: 1px solid rgba(255,255,255,.2);
+    padding: 28px 20px;
+    border-radius: 10px;
+    transition: .4s;
+}
+
+.waste:hover {
+    background: #123d60;
+    transform: translateY(-10px);
+    border-color: var(--aqua);
+}
+
+.waste .icon {
+    font-size: 38px;
+    display: block;
+    margin-bottom: 18px;
+}
+
+.waste h3 {
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.waste p {
+    color: #b8d0df;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* JOURNEY SECTION */
+
+.journey {
+    background: #f1faff;
+}
+
+.journey-header {
+    text-align: center;
+    margin: auto;
+    max-width: 700px;
+    margin-bottom: 55px;
+}
+
+.journey-header .section-description {
+    margin: auto;
+}
+
+.journey-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    position: relative;
+}
+
+.step {
+    position: relative;
+    padding-top: 25px;
+    border-top: 3px solid var(--aqua);
+}
+
+.step-number {
+    color: var(--blue);
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.step h3 {
+    color: var(--navy);
+    font-size: 21px;
+    margin: 10px 0;
+}
+
+.step p {
+    color: #617c91;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* WATER SECTION */
+
+.water-section {
+    background:
+        linear-gradient(90deg, rgba(4,29,52,.92), rgba(4,29,52,.55)),
+        url("https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1800&q=85");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 120px 10%;
+}
+
+.water-section h2 {
+    font-size: clamp(38px, 6vw, 70px);
+    line-height: 1.05;
+    max-width: 850px;
+    margin: 20px auto;
+}
+
+.water-section p {
+    color: #d1e9f4;
+    max-width: 600px;
+    margin: auto auto 30px;
+    line-height: 1.9;
+}
+
+/* LAWS */
+
+.references {
+    background: white;
+}
+
+.references-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.reference {
+    background: #eaf7fc;
+    padding: 30px;
+    border-radius: 10px;
+    transition: .3s;
+}
+
+.reference:hover {
+    background: #d8f2f7;
+    transform: translateY(-7px);
+}
+
+.reference .law-number {
+    font-size: 32px;
+    color: var(--blue);
+    font-weight: 900;
+}
+
+.reference h3 {
+    color: var(--navy);
+    margin: 10px 0;
+}
+
+.reference p {
+    color: #617c91;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.reference a {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--blue);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+/* FINAL CAMPAIGN */
+
+.final {
+    background: var(--aqua);
+    padding: 90px 9%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.final h2 {
+    font-size: clamp(40px, 6vw, 75px);
+    color: var(--deep);
+    line-height: 1;
+    letter-spacing: -3px;
+    max-width: 900px;
+    margin: 20px auto;
+}
+
+.final p {
+    color: #164a65;
+    margin: 20px auto 30px;
+    max-width: 550px;
+    line-height: 1.8;
+}
+
+.final .primary-btn {
+    background: var(--deep);
+    color: white;
+}
+
+.final .primary-btn:hover {
+    background: white;
+    color: var(--deep);
+}
+
+/* FOOTER */
+
+footer {
+    background: #03182a;
+    color: #b8d0df;
+    padding: 45px 9%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.footer-logo {
+    color: white;
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.footer-logo span {
+    color: var(--aqua);
+}
+
+footer p {
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+/* ANIMATIONS */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-22px);
+    }
+}
+
+@keyframes slide {
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 850px) {
+    nav {
+        padding: 20px 5%;
+    }
+
+    nav ul {
+        gap: 13px;
+    }
+
+    nav ul a {
+        font-size: 10px;
+    }
+
+    .hero {
+        padding: 170px 7% 120px;
+        min-height: 650px;
+    }
+
+    .intro,
+    .problem-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .waste-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .references-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .problem-main {
+        min-height: 350px;
+    }
+}
+
+@media(max-width: 550px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding-top: 200px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    section {
+        padding: 75px 7%;
+    }
+
+    .intro-image img {
+        height: 300px;
+    }
+
+    .fact-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .fact {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+
+    .waste-grid,
+    .journey-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .problem-main h3 {
+        font-size: 25px;
+    }
+
+    .final h2 {
+        letter-spacing: -2px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="logo">FLUSH <span>SMART!</span></div>
+
+    <ul>
+        <li><a href="#about">THE ADVOCACY</a></li>
+        <li><a href="#problem">THE PROBLEM</a></li>
+        <li><a href="#action">TAKE ACTION</a></li>
+        <li><a href="#references">REFERENCES</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+    <div class="bubble one"></div>
+    <div class="bubble two"></div>
+    <div class="bubble three"></div>
+
+    <div class="hero-content">
+        <span class="eyebrow">A campaign for cleaner communities</span>
+
+        <h1>
+            THINK
+            BEFORE
+            YOU <span>FLUSH.</span>
+        </h1>
+
+        <p>
+            Your toilet is not a trash can. Every responsible flush
+            helps protect our pipes, wastewater systems, and the
+            waterways that sustain life.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#about" class="primary-btn">EXPLORE THE CAMPAIGN →</a>
+            <a href="#action" class="text-btn">MAKE A DIFFERENCE</a>
+        </div>
+    </div>
+</header>
+
+<!-- MOVING MESSAGE -->
+<div class="marquee">
+    <span>
+        EVERY FLUSH MATTERS ✦ PROTECT OUR WATER ✦
+        DISPOSE RESPONSIBLY ✦ KEEP OUR COMMUNITIES CLEAN ✦
+        EVERY FLUSH MATTERS ✦ PROTECT OUR WATER ✦
+    </span>
+</div>
+
+<!-- INTRODUCTION -->
+<section class="intro" id="about">
+
+    <div class="intro-image">
+        <img
+        src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=85"
+        alt="Clean modern bathroom">
+
+        <div class="image-stamp">
+            THINK BEFORE YOU FLUSH
+        </div>
+    </div>
+
+    <div class="intro-text">
+        <span class="small-label">01 / THE ADVOCACY</span>
+
+        <h2 class="section-title">
+            A little action can protect a whole water system.
+        </h2>
+
+        <p>
+            We often forget what happens after we flush. The waste
+            does not simply disappear. It travels through a network
+            of pipes and wastewater systems.
+        </p>
+
+        <p>
+            Toilets are designed for human waste and toilet paper
+            where appropriate. Throwing other materials into them
+            can cause blockages and interfere with wastewater management.
+        </p>
+
+        <p>
+            FLUSH SMART! is an awareness campaign that encourages
+            proper disposal habits and responsible sanitation practices.
+        </p>
+    </div>
+
+</section>
+
+<!-- FACT STRIP -->
+<div class="fact-strip">
+
+    <div class="fact">
+        <strong>01 — PREVENT</strong>
+        <p>Help prevent clogged pipes by keeping inappropriate materials out of toilets.</p>
+    </div>
+
+    <div class="fact">
+        <strong>02 — PROTECT</strong>
+        <p>Support wastewater systems by practicing proper disposal habits.</p>
+    </div>
+
+    <div class="fact">
+        <strong>03 — PRESERVE</strong>
+        <p>Help protect the environment through responsible sanitation.</p>
+    </div>
+
+</div>
+
+<!-- THE PROBLEM -->
+<section class="problem" id="problem">
+
+    <div class="problem-heading">
+        <div>
+            <span class="small-label">02 / THE CONSEQUENCES</span>
+            <h2 class="section-title">The problem goes<br>down the drain.</h2>
+        </div>
+
+        <p class="section-description">
+            Improper flushing may seem harmless, but its effects
+            can extend beyond your bathroom.
+        </p>
+    </div>
+
+    <div class="problem-layout">
+
+        <div class="problem-main">
+            <h3>What goes down the toilet doesn't just disappear.</h3>
+        </div>
+
+        <div class="problem-side">
+
+            <div class="problem-card">
+                <span>01 — PIPE BLOCKAGES</span>
+                <h3>Clogged drainage</h3>
+                <p>
+                    Wipes, plastics, and other materials can accumulate
+                    and contribute to blocked pipes.
+                </p>
+            </div>
+
+            <div class="problem-card">
+                <span>02 — WASTEWATER ISSUES</span>
+                <h3>System disruption</h3>
+                <p>
+                    Improperly disposed waste can interfere with
+                    wastewater collection and treatment.
+                </p>
+            </div>
+
+            <div class="problem-card">
+                <span>03 — ENVIRONMENTAL IMPACT</span>
+                <h3>Water pollution risks</h3>
+                <p>
+                    Poor waste management can contribute to pollution
+                    and threaten the cleanliness of waterways.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!-- DO NOT FLUSH -->
+<section class="dont-flush">
+
+    <div class="dont-heading">
+        <span class="small-label">03 / KNOW WHAT TO AVOID</span>
+
+        <h2 class="section-title">
+            NOT EVERYTHING<br>BELONGS IN HERE.
+        </h2>
+
+        <p class="section-description">
+            These everyday items should never be treated as
+            toilet waste. Put them in the proper waste bin instead.
+        </p>
+    </div>
+
+    <div class="waste-grid">
+
+        <div class="waste">
+            <span class="icon">🧻</span>
+            <h3>Wet Wipes</h3>
+            <p>Can remain intact and contribute to pipe blockages.</p>
+        </div>
+
+        <div class="waste">
+            <span class="icon">🩹</span>
+            <h3>Sanitary Products</h3>
+            <p>Can absorb water and cause obstructions.</p>
+        </div>
+
+        <div class="waste">
+            <span class="icon">🪥</span>
+            <h3>Cotton Buds</h3>
+            <p>Do not break down like toilet paper.</p>
+        </div>
+
+        <div class="waste">
+            <span class="icon">🛍️</span>
+            <h3>Plastic Wrappers</h3>
+            <p>Can accumulate in pipes and drainage systems.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- HOW TO HELP -->
+<section class="journey" id="action">
+
+    <div class="journey-header">
+        <span class="small-label">04 / THE BETTER WAY</span>
+
+        <h2 class="section-title">
+            Change your habits.<br>Change your impact.
+        </h2>
+
+        <p class="section-description">
+            Responsible sanitation does not require complicated
+            actions. It starts with simple everyday decisions.
+        </p>
+    </div>
+
+    <div class="journey-steps">
+
+        <div class="step">
+            <span class="step-number">01</span>
+            <h3>Think before flushing</h3>
+            <p>
+                Ask yourself whether the item is actually suitable
+                for toilet disposal.
+            </p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">02</span>
+            <h3>Dispose properly</h3>
+            <p>
+                Use waste bins for wipes, sanitary products,
+                plastics, and other household garbage.
+            </p>
+        </div>
+
+        <div class="step">
+            <span class="step-number">03</span>
+            <h3>Spread awareness</h3>
+            <p>
+                Encourage friends, family, and your community
+                to practice proper sanitation.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- WATER FEATURE -->
+<section class="water-section">
+
+    <span class="eyebrow">OUR WATER. OUR RESPONSIBILITY.</span>
+
+    <h2>Clean waterways begin with responsible choices.</h2>
+
+    <p>
+        Protecting our environment is not only the responsibility
+        of sanitation professionals. Every household and every
+        individual has a role to play.
+    </p>
+
+    <a href="#references" class="primary-btn">LEARN MORE ABOUT SANITATION</a>
+
+</section>
+
+<!-- REFERENCES -->
+<section class="references" id="references">
+
+    <span class="small-label">05 / KNOW THE LAW</span>
+
+    <h2 class="section-title">
+        A cleaner environment<br>starts with responsibility.
+    </h2>
+
+    <p class="section-description">
+        These Philippine laws establish broader frameworks
+        for waste management, water protection, and sanitation.
+    </p>
+
+    <div class="references-grid">
+
+        <div class="reference">
+            <span class="law-number">RA 9003</span>
+            <h3>Ecological Solid Waste Management Act</h3>
+            <p>
+                Promotes proper solid waste management,
+                segregation, and disposal.
+            </p>
+            <a href="https://lawphil.net/statutes/repacts/ra2001/ra_9003_2001.html" target="_blank">
+                EXPLORE THE LAW →
+            </a>
+        </div>
+
+        <div class="reference">
+            <span class="law-number">RA 9275</span>
+            <h3>Philippine Clean Water Act</h3>
+            <p>
+                Establishes measures to protect and preserve
+                the quality of Philippine water resources.
+            </p>
+            <a href="https://lawphil.net/statutes/repacts/ra2004/ra_9275_2004.html" target="_blank">
+                EXPLORE THE LAW →
+            </a>
+        </div>
+
+        <div class="reference">
+            <span class="law-number">PD 856</span>
+            <h3>Code on Sanitation of the Philippines</h3>
+            <p>
+                Provides sanitation standards and measures
+                for the protection of public health.
+            </p>
+            <a href="https://issuances-library.senate.gov.ph/legislative%2Bissuances/Presidential%20Decree%20No.%20856%2C%20s.%201975" target="_blank">
+                EXPLORE THE LAW →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FINAL MESSAGE -->
+<section class="final">
+
+    <span class="small-label">THE FLUSH SMART! MOVEMENT</span>
+
+    <h2>YOUR TOILET IS NOT A TRASH CAN.</h2>
+
+    <p>
+        One responsible action may seem small, but together,
+        our habits can help build cleaner communities and
+        protect our water systems.
+    </p>
+
+    <a href="#top" class="primary-btn">REMEMBER: FLUSH SMART! ↑</a>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+            <div class="footer-logo">FLUSH <span>SMART!</span></div>
+            <p>Think before you flush. Protect what flows beyond.</p>
+        </div>
+
+        <div>
+            <p>AN ADVOCACY FOR RESPONSIBLE SANITATION</p>
+            <p>© 2026 FLUSH SMART! | Educational Project</p>
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>
